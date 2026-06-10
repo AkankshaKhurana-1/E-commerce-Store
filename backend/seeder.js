@@ -200,22 +200,25 @@ const sampleProducts = [
   },
 ];
 
+const seedProducts = async () => {
+  // Clear existing products
+  await Product.deleteMany({});
+  console.log('🗑️  Cleared existing products');
+
+  // Insert sample products
+  const inserted = await Product.insertMany(sampleProducts);
+  console.log(`🌱 Seeded ${inserted.length} products successfully`);
+
+  console.log('\n📦 Sample products added:');
+  inserted.forEach((p) => console.log(`   - ${p.name} ($${p.price})`));
+  return inserted;
+};
+
 const seedDatabase = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log('✅ Connected to MongoDB Atlas');
-
-    // Clear existing products
-    await Product.deleteMany({});
-    console.log('🗑️  Cleared existing products');
-
-    // Insert sample products
-    const inserted = await Product.insertMany(sampleProducts);
-    console.log(`🌱 Seeded ${inserted.length} products successfully`);
-
-    console.log('\n📦 Sample products added:');
-    inserted.forEach((p) => console.log(`   - ${p.name} ($${p.price})`));
-
+    await seedProducts();
     process.exit(0);
   } catch (error) {
     console.error('❌ Seeding failed:', error.message);
@@ -223,4 +226,8 @@ const seedDatabase = async () => {
   }
 };
 
-seedDatabase();
+if (require.main === module) {
+  seedDatabase();
+}
+
+module.exports = { sampleProducts, seedProducts };
