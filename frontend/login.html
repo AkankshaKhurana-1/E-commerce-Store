@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — ShopEase</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">Shop<span>Ease</span></a>
+    <div class="nav-links" id="nav-links" style="display:flex">
+      <a href="login.html"    id="nav-login" class="active">Login</a>
+      <a href="register.html" id="nav-register">Register</a>
+      <a href="#" id="nav-user"   style="display:none;color:var(--accent)"></a>
+      <a href="#" id="nav-logout" style="display:none">Logout</a>
+      <a href="cart.html" class="cart-icon">
+        🛒 <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="auth-logo">🛍️ ShopEase</div>
+      <h2>Welcome Back</h2>
+      <p>Sign in to your account to continue shopping</p>
+    </div>
+
+    <div id="form-alert" class="alert" style="display:none"></div>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" class="form-control" placeholder="john@example.com" autocomplete="email" required />
+        <span class="field-error" id="email-error" style="display:none"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" class="form-control" placeholder="Your password" autocomplete="current-password" required />
+          <button type="button" class="toggle-password" data-target="password">👁️</button>
+        </div>
+        <span class="field-error" id="password-error" style="display:none"></span>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;margin-bottom:1.25rem">
+        <a href="#" style="font-size:.85rem;color:var(--primary)">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full btn-lg">Sign In</button>
+    </form>
+
+    <div class="divider">or</div>
+
+    <div style="background:var(--primary-light);border-radius:var(--radius-sm);padding:.85rem 1rem;font-size:.85rem;color:var(--primary);margin-bottom:1rem">
+      <strong>Demo:</strong> Register a new account to get started, or use any account you have already created.
+    </div>
+
+    <div class="auth-footer">Don't have an account? <a href="register.html">Create one free</a></div>
+  </div>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

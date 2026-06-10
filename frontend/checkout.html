@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — ShopEase</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">Shop<span>Ease</span></a>
+    <div class="nav-links" id="nav-links" style="display:flex">
+      <a href="index.html">🏠 Home</a>
+      <a href="cart.html">🛒 Cart</a>
+      <a href="login.html"    id="nav-login">Login</a>
+      <a href="register.html" id="nav-register">Register</a>
+      <a href="#" id="nav-user"   style="display:none;color:var(--accent)"></a>
+      <a href="#" id="nav-logout" style="display:none">Logout</a>
+      <a href="cart.html" class="cart-icon">
+        🛒 <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div style="background:var(--white);border-bottom:1px solid var(--border);padding:1.5rem 0">
+  <div class="container">
+    <h1 style="font-size:1.75rem">🔒 Secure Checkout</h1>
+  </div>
+</div>
+
+<main class="checkout-page">
+  <div class="container">
+    <div id="checkout-main">
+      <form id="checkout-form" novalidate>
+        <div class="checkout-layout">
+
+          <!-- LEFT: Shipping + Payment -->
+          <div>
+            <!-- Shipping Address -->
+            <div class="checkout-section">
+              <h3><span class="step-number">1</span> Shipping Address</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Full Name *</label>
+                  <input type="text" id="fullName" class="form-control" placeholder="John Doe" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 000-0000" required autocomplete="tel" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address">Street Address *</label>
+                <input type="text" id="address" class="form-control" placeholder="123 Main Street, Apt 4B" required autocomplete="street-address" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City *</label>
+                  <input type="text" id="city" class="form-control" placeholder="New York" required autocomplete="address-level2" />
+                </div>
+                <div class="form-group">
+                  <label for="postalCode">Postal Code *</label>
+                  <input type="text" id="postalCode" class="form-control" placeholder="10001" required autocomplete="postal-code" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <select id="country" class="form-control" required autocomplete="country">
+                  <option value="">Select country…</option>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="France">France</option>
+                  <option value="India">India</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="checkout-section">
+              <h3><span class="step-number">2</span> Payment Method</h3>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="Cash on Delivery" checked />
+                <span style="font-size:1.5rem">💵</span>
+                <div>
+                  <div style="font-weight:600">Cash on Delivery</div>
+                  <div style="font-size:.82rem;color:var(--text-muted)">Pay when your order arrives</div>
+                </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="Credit Card" />
+                <span style="font-size:1.5rem">💳</span>
+                <div>
+                  <div style="font-weight:600">Credit / Debit Card</div>
+                  <div style="font-size:.82rem;color:var(--text-muted)">Visa, Mastercard, Amex</div>
+                </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="PayPal" />
+                <span style="font-size:1.5rem">🅿️</span>
+                <div>
+                  <div style="font-weight:600">PayPal</div>
+                  <div style="font-size:.82rem;color:var(--text-muted)">Fast and secure checkout</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- RIGHT: Order Summary -->
+          <div>
+            <div class="cart-summary" style="position:sticky;top:90px">
+              <h3><span class="step-number">3</span> Order Summary</h3>
+              <div id="order-review-items" style="margin-bottom:1rem"></div>
+              <div class="summary-row">
+                <span>Items (<span id="summary-items">0</span>)</span>
+                <span id="summary-subtotal">$0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span id="summary-shipping">$0.00</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="summary-total">$0.00</span>
+              </div>
+              <button type="submit" class="btn btn-success btn-full btn-lg"
+                      id="place-order-btn" style="margin-top:1.25rem">
+                ✅ Place Order
+              </button>
+              <div style="text-align:center;margin-top:.75rem;font-size:.8rem;color:var(--text-muted)">
+                🔒 Your information is encrypted and secure
+              </div>
+              <a href="cart.html" class="btn btn-secondary btn-full" style="margin-top:.75rem">
+                ← Back to Cart
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="padding:1.5rem 0">
+      <span>© 2024 ShopEase — <a href="#">CodeAlpha Internship Project</a></span>
+      <span>Made with ❤️ using Node.js, Express &amp; MongoDB</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

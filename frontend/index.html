@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ShopEase — Modern e-commerce store with the best products at great prices." />
+  <title>ShopEase — Online Store</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">Shop<span>Ease</span></a>
+    <form class="nav-search" id="nav-search-form">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="nav-search-input" placeholder="Search products…" autocomplete="off" />
+    </form>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html" class="active">🏠 Home</a>
+      <a href="index.html#products">Products</a>
+      <a href="login.html"    id="nav-login">Login</a>
+      <a href="register.html" id="nav-register">Register</a>
+      <a href="#" id="nav-user"   style="display:none;color:var(--accent)"></a>
+      <a href="#" id="nav-logout" style="display:none">Logout</a>
+      <a href="cart.html" class="cart-icon" aria-label="Cart">
+        🛒 <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">✨ New Arrivals Every Week</div>
+      <h1>Discover Amazing Products at Unbeatable Prices</h1>
+      <p>Shop the latest electronics, fashion, books, and more — all in one place with fast delivery and easy returns.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary btn-lg">🛍️ Shop Now</a>
+        <a href="register.html" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,.4);color:var(--white)">Create Account</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-value">500+</div><div class="hero-stat-label">Products</div></div>
+        <div><div class="hero-stat-value">10K+</div><div class="hero-stat-label">Happy Customers</div></div>
+        <div><div class="hero-stat-value">4.8★</div><div class="hero-stat-label">Avg Rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Category Filter Bar ────────────────────────────────── -->
+<div class="categories-bar">
+  <div class="container">
+    <div class="categories-scroll" id="categories-bar">
+      <div class="loading-skeleton" style="height:34px;width:60px;border-radius:50px;flex-shrink:0"></div>
+      <div class="loading-skeleton" style="height:34px;width:90px;border-radius:50px;flex-shrink:0"></div>
+      <div class="loading-skeleton" style="height:34px;width:80px;border-radius:50px;flex-shrink:0"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Products Section ───────────────────────────────────── -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Collection</div>
+      <h2>Featured Products</h2>
+      <p>Handpicked items across all categories — quality guaranteed.</p>
+    </div>
+    <div class="products-toolbar">
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div style="position:relative">
+          <span style="position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--text-muted)">🔍</span>
+          <input type="text" id="search-input" class="form-control"
+                 placeholder="Search products…"
+                 style="padding-left:2.4rem;max-width:260px" autocomplete="off" />
+        </div>
+        <span class="products-count" id="products-count">Loading…</span>
+      </div>
+      <select class="sort-select" id="sort-select">
+        <option value="newest">Newest First</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <div class="products-grid" id="products-grid"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</section>
+
+<!-- ── Features Banner ────────────────────────────────────── -->
+<section style="background:var(--white);padding:3rem 0;border-top:1px solid var(--border)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;text-align:center">
+      <div><div style="font-size:2.5rem;margin-bottom:.75rem">🚚</div><h4>Free Shipping</h4><p style="font-size:.88rem">On all orders over $100</p></div>
+      <div><div style="font-size:2.5rem;margin-bottom:.75rem">🔄</div><h4>Easy Returns</h4><p style="font-size:.88rem">30-day hassle-free returns</p></div>
+      <div><div style="font-size:2.5rem;margin-bottom:.75rem">🔒</div><h4>Secure Payment</h4><p style="font-size:.88rem">Your data is always protected</p></div>
+      <div><div style="font-size:2.5rem;margin-bottom:.75rem">💬</div><h4>24/7 Support</h4><p style="font-size:.88rem">We're here whenever you need us</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="nav-logo">Shop<span>Ease</span></div>
+        <p>Your one-stop destination for quality products at great prices. Shop with confidence.</p>
+        <div class="social-links" style="margin-top:1rem">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="index.html">All Products</a></li>
+          <li><a href="index.html?category=Electronics">Electronics</a></li>
+          <li><a href="index.html?category=Clothing">Clothing</a></li>
+          <li><a href="index.html?category=Books">Books</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+          <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 ShopEase. Built for <a href="#">CodeAlpha Internship</a>.</span>
+      <span>Made with ❤️ using Node.js, Express &amp; MongoDB</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>
