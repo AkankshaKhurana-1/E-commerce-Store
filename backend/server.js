@@ -20,10 +20,25 @@ app.use(express.json());
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
 
-// Enable CORS for frontend requests
+// Enable CORS for frontend requests (allowing localhost/127.0.0.1 on any dev port)
+const allowedOrigins = [process.env.CLIENT_URL].filter(Boolean);
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || '*',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like curl or postman)
+      if (!origin) return callback(null, true);
+      
+      const isLocal = origin.startsWith('http://localhost:') || 
+                      origin.startsWith('http://127.0.0.1:') || 
+                      origin === 'http://localhost' || 
+                      origin === 'http://127.0.0.1';
+                      
+      if (isLocal || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
