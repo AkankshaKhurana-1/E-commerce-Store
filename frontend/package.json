@@ -1,0 +1,22 @@
+{
+  "name": "shopease-frontend",
+  "version": "1.0.0",
+  "description": "ShopEase E-Commerce Store Frontend Client",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -l 5500",
+    "dev": "serve -l 5500"
+  },
+  "keywords": [
+    "ecommerce",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "CodeAlpha Intern",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
